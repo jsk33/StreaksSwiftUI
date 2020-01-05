@@ -52,7 +52,7 @@ struct ContentView: View {
     
     
     var body: some View {
-        VStack {
+        VStack() {
             // App Title
             Text("Streaks")
                 .modifier(TitleStyle())
@@ -99,6 +99,14 @@ struct ContentView: View {
             }
             
             Spacer()
+            
+            // Info Button
+            NavigationLink(destination: InfoView()) {
+                HStack {
+                    //Image()
+                    Text("Info")
+                }
+            }
         }
     }
 }

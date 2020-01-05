@@ -15,6 +15,7 @@
 		E089334123C18365004A115F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E089333F23C18365004A115F /* LaunchScreen.storyboard */; };
 		E089334C23C18365004A115F /* StreaksTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E089334B23C18365004A115F /* StreaksTests.swift */; };
 		E089335723C18365004A115F /* StreaksUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E089335623C18365004A115F /* StreaksUITests.swift */; };
+		E089336523C26295004A115F /* InfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E089336423C26295004A115F /* InfoView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +50,7 @@
 		E089335223C18365004A115F /* StreaksUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = StreaksUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E089335623C18365004A115F /* StreaksUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StreaksUITests.swift; sourceTree = "<group>"; };
 		E089335823C18365004A115F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E089336423C26295004A115F /* InfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +108,7 @@
 				E089333F23C18365004A115F /* LaunchScreen.storyboard */,
 				E089334223C18365004A115F /* Info.plist */,
 				E089333C23C18365004A115F /* Preview Content */,
+				E089336423C26295004A115F /* InfoView.swift */,
 			);
 			path = Streaks;
 			sourceTree = "<group>";
@@ -267,6 +270,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E089336523C26295004A115F /* InfoView.swift in Sources */,
 				E089333523C18361004A115F /* AppDelegate.swift in Sources */,
 				E089333723C18361004A115F /* SceneDelegate.swift in Sources */,
 				E089333923C18361004A115F /* ContentView.swift in Sources */,
