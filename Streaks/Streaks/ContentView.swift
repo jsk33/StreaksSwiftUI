@@ -14,29 +14,66 @@ struct ContentView: View {
     @State var itemTwoNum = 0
     @State var itemThreeNum = 0
 
+    let midnightBlue = Color.init(red: 0.0/255.0, green: 51.0/255.0, blue: 102.0/255.0)
+
+    struct TitleStyle: ViewModifier {
+        func body(content: Content) -> some View {
+            return content
+                .foregroundColor(Color.black)
+                .font(Font.custom("Arial Rounded MT Bold", size: 40))
+                .modifier(ShadowStyle())
+        }
+    }
+    
+    struct ShadowStyle: ViewModifier {
+        func body(content: Content) -> some View {
+            return content
+                .shadow(color: Color.black, radius: 5, x: 2, y: 2)
+        }
+    }
+    
+    struct ItemStyle: ViewModifier {
+        func body(content: Content) -> some View {
+            return content
+                .foregroundColor(Color.blue)
+                .font(Font.custom("Arial Rounded MT Bold", size: 18))
+        }
+    }
+    
+    struct ItemNumStyle: ViewModifier {
+        func body(content: Content) -> some View {
+            return content
+                .foregroundColor(Color.black)
+                .font(Font.custom("Arial Rounded MT Bold", size: 20))
+                .modifier(ShadowStyle())
+        }
+    }
+    
+    
+    
     var body: some View {
         VStack {
+            // App Title
             Text("Streaks")
-                .font(.largeTitle)
-                .fontWeight(.bold)
-                .multilineTextAlignment(.center)
+                .modifier(TitleStyle())
                 .padding(.top, 50.0)
+            
             Text("One step at a time")
-                .font(.headline)
-                .multilineTextAlignment(.center)
+                .font(Font.custom("Arial Rounded MT Bold", size: 15))
                 .padding(.top)
                 .padding(.bottom, 50.0)
             
             Spacer()
             
+            // Target Items
             VStack {
                 HStack() {
                     Button(action: {
                         self.itemOneNum += 1
                     }) {
-                        Text("Streaks for an hour")
+                        Text("Streaks for an hour").modifier(ItemStyle())
                     }
-                    Text("\(itemOneNum)")
+                    Text("\(itemOneNum)").modifier(ItemNumStyle())
                 }
                 .padding(.bottom)
                 
@@ -44,9 +81,9 @@ struct ContentView: View {
                     Button(action: {
                         self.itemTwoNum += 1
                     }) {
-                        Text("LeetCode for an hour")
+                        Text("LeetCode for an hour").modifier(ItemStyle())
                     }
-                    Text("\(itemTwoNum)")
+                    Text("\(itemTwoNum)").modifier(ItemNumStyle())
                 }
                 .padding(.bottom)
                 
@@ -54,9 +91,9 @@ struct ContentView: View {
                     Button(action: {
                         self.itemThreeNum += 1
                     }) {
-                        Text("Gym")
+                        Text("Gym").modifier(ItemStyle())
                     }
-                    Text("\(itemThreeNum)")
+                    Text("\(itemThreeNum)").modifier(ItemNumStyle())
                 }
                 .padding(.bottom)
             }
