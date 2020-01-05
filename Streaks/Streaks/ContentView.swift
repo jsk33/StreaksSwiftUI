@@ -31,7 +31,9 @@ struct ContentView: View {
             
             VStack {
                 HStack() {
-                    Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/) {
+                    Button(action: {
+                        self.itemOneNum += 1
+                    }) {
                         Text("Streaks for an hour")
                     }
                     Text("\(itemOneNum)")
@@ -39,7 +41,9 @@ struct ContentView: View {
                 .padding(.bottom)
                 
                 HStack {
-                    Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/) {
+                    Button(action: {
+                        self.itemTwoNum += 1
+                    }) {
                         Text("LeetCode for an hour")
                     }
                     Text("\(itemTwoNum)")
@@ -47,7 +51,9 @@ struct ContentView: View {
                 .padding(.bottom)
                 
                 HStack {
-                    Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/) {
+                    Button(action: {
+                        self.itemThreeNum += 1
+                    }) {
                         Text("Gym")
                     }
                     Text("\(itemThreeNum)")
