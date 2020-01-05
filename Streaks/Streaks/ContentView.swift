@@ -9,6 +9,11 @@
 import SwiftUI
 
 struct ContentView: View {
+    
+    @State var itemOneNum = 0
+    @State var itemTwoNum = 0
+    @State var itemThreeNum = 0
+
     var body: some View {
         VStack {
             Text("Streaks")
@@ -25,10 +30,29 @@ struct ContentView: View {
             Spacer()
             
             VStack {
-                HStack {
-                    Text("Work on Streaks")
-                    
+                HStack() {
+                    Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/) {
+                        Text("Streaks for an hour")
+                    }
+                    Text("\(itemOneNum)")
                 }
+                .padding(.bottom)
+                
+                HStack {
+                    Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/) {
+                        Text("LeetCode for an hour")
+                    }
+                    Text("\(itemTwoNum)")
+                }
+                .padding(.bottom)
+                
+                HStack {
+                    Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/) {
+                        Text("Gym")
+                    }
+                    Text("\(itemThreeNum)")
+                }
+                .padding(.bottom)
             }
             
             Spacer()
