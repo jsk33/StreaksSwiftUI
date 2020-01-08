@@ -53,6 +53,8 @@ struct ContentView: View {
     
     var body: some View {
         VStack() {
+            Spacer()
+            
             // App Title
             Text("Streaks")
                 .modifier(TitleStyle())
@@ -81,7 +83,7 @@ struct ContentView: View {
                     Button(action: {
                         self.itemTwoNum += 1
                     }) {
-                        Text("LeetCode for an hour").modifier(ItemStyle())
+                        Text("Interview prep for an hour").modifier(ItemStyle())
                     }
                     Text("\(itemTwoNum)").modifier(ItemNumStyle())
                 }
@@ -100,14 +102,17 @@ struct ContentView: View {
             
             Spacer()
             
-            // Info Button
+            // Info Page
             NavigationLink(destination: InfoView()) {
                 HStack {
                     //Image()
                     Text("Info")
                 }
             }
-        }
+            
+            Spacer()
+        }.background(Image("Background").resizable().scaledToFill())
+            .edgesIgnoringSafeArea([.top, .bottom])
     }
 }
 
