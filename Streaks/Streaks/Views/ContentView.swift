@@ -10,9 +10,10 @@ import SwiftUI
 
 struct ContentView: View {
     
+    @ObservedObject var taskGroup: TaskGroup
+    
     @State var itemOneNum = 0
     @State var itemTwoNum = 0
-    @State var itemThreeNum = 0
 
     let midnightBlue = Color.init(red: 0.0/255.0, green: 51.0/255.0, blue: 102.0/255.0)
 
@@ -32,7 +33,7 @@ struct ContentView: View {
         }
     }
     
-    struct ItemStyle: ViewModifier {
+    struct TaskStyle: ViewModifier {
         func body(content: Content) -> some View {
             return content
                 .foregroundColor(Color.blue)
@@ -40,7 +41,7 @@ struct ContentView: View {
         }
     }
     
-    struct ItemNumStyle: ViewModifier {
+    struct TaskStreakCountStyle: ViewModifier {
         func body(content: Content) -> some View {
             return content
                 .foregroundColor(Color.black)
@@ -68,36 +69,13 @@ struct ContentView: View {
             Spacer()
             
             // Target Items
-            VStack {
-                HStack() {
-                    Button(action: {
-                        self.itemOneNum += 1
-                    }) {
-                        Text("Streaks for an hour").modifier(ItemStyle())
+            List {
+                ForEach(taskGroup.tasks) { task in
+                    HStack {
+                        Text("\(task.name)").modifier(TaskStyle())
+                        Text("\(task.streakCount)").modifier(TaskStreakCountStyle())
                     }
-                    Text("\(itemOneNum)").modifier(ItemNumStyle())
                 }
-                .padding(.bottom)
-                
-                HStack {
-                    Button(action: {
-                        self.itemTwoNum += 1
-                    }) {
-                        Text("Interview prep for an hour").modifier(ItemStyle())
-                    }
-                    Text("\(itemTwoNum)").modifier(ItemNumStyle())
-                }
-                .padding(.bottom)
-                
-                HStack {
-                    Button(action: {
-                        self.itemThreeNum += 1
-                    }) {
-                        Text("Gym").modifier(ItemStyle())
-                    }
-                    Text("\(itemThreeNum)").modifier(ItemNumStyle())
-                }
-                .padding(.bottom)
             }
             
             Spacer()
@@ -118,6 +96,6 @@ struct ContentView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        ContentView(taskGroup: TaskGroup())
     }
 }

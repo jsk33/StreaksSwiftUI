@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E019F93523DA8AF8009555AD /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = E019F93423DA8AF8009555AD /* Task.swift */; };
+		E019F93723DA8D51009555AD /* TaskGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = E019F93623DA8D51009555AD /* TaskGroup.swift */; };
 		E089333523C18361004A115F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E089333423C18361004A115F /* AppDelegate.swift */; };
 		E089333723C18361004A115F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E089333623C18361004A115F /* SceneDelegate.swift */; };
 		E089333923C18361004A115F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E089333823C18361004A115F /* ContentView.swift */; };
@@ -36,6 +38,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		E019F93423DA8AF8009555AD /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
+		E019F93623DA8D51009555AD /* TaskGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskGroup.swift; sourceTree = "<group>"; };
 		E089333123C18361004A115F /* Streaks.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Streaks.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E089333423C18361004A115F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E089333623C18361004A115F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -78,6 +82,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		E019F93223DA8AAF009555AD /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				E089333823C18361004A115F /* ContentView.swift */,
+				E089336423C26295004A115F /* InfoView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		E019F93323DA8ACB009555AD /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				E019F93423DA8AF8009555AD /* Task.swift */,
+				E019F93623DA8D51009555AD /* TaskGroup.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		E089332823C18361004A115F = {
 			isa = PBXGroup;
 			children = (
@@ -101,14 +123,14 @@
 		E089333323C18361004A115F /* Streaks */ = {
 			isa = PBXGroup;
 			children = (
+				E019F93323DA8ACB009555AD /* Models */,
+				E019F93223DA8AAF009555AD /* Views */,
 				E089333423C18361004A115F /* AppDelegate.swift */,
 				E089333623C18361004A115F /* SceneDelegate.swift */,
-				E089333823C18361004A115F /* ContentView.swift */,
 				E089333A23C18365004A115F /* Assets.xcassets */,
 				E089333F23C18365004A115F /* LaunchScreen.storyboard */,
 				E089334223C18365004A115F /* Info.plist */,
 				E089333C23C18365004A115F /* Preview Content */,
-				E089336423C26295004A115F /* InfoView.swift */,
 			);
 			path = Streaks;
 			sourceTree = "<group>";
@@ -272,6 +294,8 @@
 			files = (
 				E089336523C26295004A115F /* InfoView.swift in Sources */,
 				E089333523C18361004A115F /* AppDelegate.swift in Sources */,
+				E019F93723DA8D51009555AD /* TaskGroup.swift in Sources */,
+				E019F93523DA8AF8009555AD /* Task.swift in Sources */,
 				E089333723C18361004A115F /* SceneDelegate.swift in Sources */,
 				E089333923C18361004A115F /* ContentView.swift in Sources */,
 			);
