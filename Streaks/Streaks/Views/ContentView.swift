@@ -10,10 +10,6 @@ import SwiftUI
 
 struct ContentView: View {
     
-    @ObservedObject var taskGroup: TaskGroup
-    
-    @State var itemOneNum = 0
-    @State var itemTwoNum = 0
 
     let midnightBlue = Color.init(red: 0.0/255.0, green: 51.0/255.0, blue: 102.0/255.0)
 
@@ -51,24 +47,12 @@ struct ContentView: View {
     }
     
     
+    @ObservedObject var taskGroup: TaskGroup
+    @State var modalIsPresented = false
     
     var body: some View {
-        VStack() {
-            Spacer()
-            
-            // App Title
-            Text("Streaks")
-                .modifier(TitleStyle())
-                .padding(.top, 50.0)
-            
-            Text("One step at a time")
-                .font(Font.custom("Arial Rounded MT Bold", size: 15))
-                .padding(.top)
-                .padding(.bottom, 50.0)
-            
-            Spacer()
-            
-            // Target Items
+        NavigationView {
+           // Target Items
             List {
                 ForEach(taskGroup.tasks) { task in
                     HStack {
@@ -77,20 +61,50 @@ struct ContentView: View {
                     }
                 }
             }
+            .listStyle(GroupedListStyle())
+            .navigationBarTitle("Tasks")
+            .navigationBarItems(leading: EditButton(),
+                                trailing: Button( action: {self.modalIsPresented = true} ) {
+                                        Image(systemName: "plus")
+            })
             
-            Spacer()
             
-            // Info Page
             NavigationLink(destination: InfoView()) {
                 HStack {
                     //Image()
                     Text("Info")
                 }
             }
-            
-            Spacer()
-        }.background(Image("Background").resizable().scaledToFill())
-            .edgesIgnoringSafeArea([.top, .bottom])
+        }
+        .sheet(isPresented: $modalIsPresented) {
+            NewTaskView(taskGroup: self.taskGroup)
+        }
+        
+//        VStack() {
+//            Spacer()
+//
+//            // App Title
+//            Text("Streaks")
+//                .modifier(TitleStyle())
+//                .padding(.top, 50.0)
+//
+//            Text("One step at a time")
+//                .font(Font.custom("Arial Rounded MT Bold", size: 15))
+//                .padding(.top)
+//                .padding(.bottom, 50.0)
+//
+//            Spacer()
+//
+//
+//
+//            Spacer()
+//
+//            // Info Page
+//
+//
+//            Spacer()
+//        }.background(Image("Background").resizable().scaledToFill())
+//            .edgesIgnoringSafeArea([.top, .bottom])
     }
 }
 
